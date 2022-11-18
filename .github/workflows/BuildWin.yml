@@ -19,7 +19,7 @@ jobs:
         cache: 'sbt'
 
     - name: Build
-      run: sbt build
+      run: sbt assembly
 
     - name: Test
       run: sbt test
