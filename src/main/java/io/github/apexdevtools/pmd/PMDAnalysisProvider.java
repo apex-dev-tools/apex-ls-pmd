@@ -43,6 +43,7 @@ public class PMDAnalysisProvider implements AnalysisProvider {
         // Setup config
         PMDConfiguration configuration = new PMDConfiguration();
         configuration.addRuleSet(config.toString());
+        configuration.setIgnoreIncrementalAnalysis(true);
         return configuration;
     }
 }
