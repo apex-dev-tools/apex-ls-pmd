@@ -8,6 +8,7 @@ import io.github.apexdevtools.apexls.api.Issue;
 import net.sourceforge.pmd.PMDConfiguration;
 import net.sourceforge.pmd.PmdAnalysis;
 
+import java.nio.file.Files;
 import java.nio.file.Path;
 
 public class PMDAnalysisProvider implements AnalysisProvider {
@@ -35,14 +36,15 @@ public class PMDAnalysisProvider implements AnalysisProvider {
 
     private PMDConfiguration createPMDConfiguration(Path workspacePath) {
         // Check for our special rules file
-        Path config = workspacePath.resolve("apexls-pmd-rules.xml");
-        if (!config.toFile().canRead()) {
+        Path rulesetPath = workspacePath.resolve("apexls-pmd-rules.xml");
+        if (!Files.isReadable(rulesetPath)) {
             return null;
         }
 
         // Setup config
         PMDConfiguration configuration = new PMDConfiguration();
-        configuration.addRuleSet(config.toString());
+        configuration.addRuleSet(rulesetPath.toString());
+        configuration.setIgnoreIncrementalAnalysis(true);
         return configuration;
     }
 }
