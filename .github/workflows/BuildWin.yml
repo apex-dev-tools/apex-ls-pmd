@@ -27,7 +27,7 @@ jobs:
 
     - name: apex-ls-compile
       working-directory: './apex-ls'
-      run: sbt publishLocal
+      run: sbt "pack 3.4.0"
 
     - name: Test
       run: sbt test
