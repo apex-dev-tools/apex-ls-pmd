@@ -20,8 +20,15 @@ jobs:
         java-version: 8
         cache: 'sbt'
 
-    - name: Build
-      run: sbt assembly
+    - name: apex-ls-checkout
+      uses: actions/checkout@v2
+      with:
+        repository: apex-dev-tools/apex-ls
+        path: './apex-ls'
 
-    - name: Test
+    - name: apex-ls-compile
+      working-directory: './apex-ls'
+      run: sbt publishLocal
+
+    - name: Build
       run: sbt test
