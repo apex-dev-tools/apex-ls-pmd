@@ -36,9 +36,12 @@ public class PMDAnalysisProvider implements AnalysisProvider {
 
     private PMDConfiguration createPMDConfiguration(Path workspacePath) {
         // Check for our special rules file
-        Path rulesetPath = workspacePath.resolve("apexls-pmd-rules.xml");
+        Path rulesetPath = workspacePath.resolve("ff-pmd-rules.xml");
         if (!Files.isReadable(rulesetPath)) {
-            return null;
+            rulesetPath = workspacePath.resolve("adt-pmd-rules.xml");
+            if (!Files.isReadable(rulesetPath)) {
+                return null;
+            }
         }
 
         // Setup config

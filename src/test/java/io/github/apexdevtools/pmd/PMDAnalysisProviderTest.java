@@ -46,7 +46,7 @@ class PMDAnalysisProviderTest {
     void testProviderWithRulesetReturnsIssues() throws IOException {
         Map<String, String> workspaceFiles = new HashMap<>();
         workspaceFiles.put("foo/Foo.cls", "public class Foo {@isTest static void func() {}}");
-        workspaceFiles.put("apexls-pmd-rules.xml",
+        workspaceFiles.put("adt-pmd-rules.xml",
                 "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
                         "<ruleset name=\"test\"\n" +
                         "        xmlns=\"http://pmd.sourceforge.net/ruleset/2.0.0\"\n" +
