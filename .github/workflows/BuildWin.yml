@@ -23,6 +23,7 @@ jobs:
       with:
         repository: apex-dev-tools/apex-ls
         path: './apex-ls'
+        token: ${{ secrets.KJ_AT }}
 
     - name: apex-ls-compile
       working-directory: './apex-ls'
