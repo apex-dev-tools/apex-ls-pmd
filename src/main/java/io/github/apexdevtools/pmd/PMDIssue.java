@@ -9,10 +9,15 @@ import net.sourceforge.pmd.RulePriority;
 import net.sourceforge.pmd.RuleViolation;
 
 public class PMDIssue extends Issue {
-    private RuleViolation violation;
+    private final RuleViolation violation;
 
     public PMDIssue(RuleViolation violation) {
         this.violation = violation;
+    }
+
+    @Override
+    public String provider() {
+        return "PMD";
     }
 
     @Override
@@ -44,10 +49,10 @@ public class PMDIssue extends Issue {
     }
 
     public static class PMDLocation extends IssueLocation {
-        private int startLine;
-        private int startCharOffset;
-        private int endLine;
-        private int endCharOffset;
+        private final int startLine;
+        private final int startCharOffset;
+        private final int endLine;
+        private final int endCharOffset;
 
         public PMDLocation(int startLine, int startCharOffset, int endLine, int endCharOffset) {
             this.startLine = startLine;
