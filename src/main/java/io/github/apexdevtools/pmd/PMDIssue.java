@@ -45,7 +45,7 @@ public class PMDIssue extends Issue {
 
     @Override
     public String message() {
-        return violation.getDescription();
+        return violation.getDescription() + " (" + violation.getRule().getName() + ")";
     }
 
     public static class PMDLocation extends IssueLocation {
@@ -56,7 +56,7 @@ public class PMDIssue extends Issue {
 
         public PMDLocation(int startLine, int startCharOffset, int endLine, int endCharOffset) {
             this.startLine = startLine;
-            this.startCharOffset = startCharOffset;
+            this.startCharOffset = Math.max(0,startCharOffset-1);
             this.endLine = endLine;
             this.endCharOffset = endCharOffset;
         }
