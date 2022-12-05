@@ -23,15 +23,14 @@ class PMDIssueTest {
         Issue issue = new PMDIssue(
                 new TestRuleViolation("filename", 1, 2, 3, 4,
                         RulePriority.HIGH, "description"));
-        assertEquals(issue.filePath(), "filename");
-        assertEquals(issue.fileLocation().startLineNumber(), 1);
-        assertEquals(issue.fileLocation().startCharOffset(), 2);
-        assertEquals(issue.fileLocation().endLineNumber(), 3);
-        assertEquals(issue.fileLocation().endCharOffset(), 4);
-        assertEquals(issue.category(), "Error");
-        assertEquals(issue.isError(), true);
-        assertEquals(issue.message(), "description");
-
+        assertEquals("filename", issue.filePath());
+        assertEquals(1, issue.fileLocation().startLineNumber());
+        assertEquals(1, issue.fileLocation().startCharOffset());
+        assertEquals(3, issue.fileLocation().endLineNumber());
+        assertEquals(4, issue.fileLocation().endCharOffset());
+        assertEquals( "Error", issue.category());
+        assertEquals(true, issue.isError());
+        assertEquals("description (TestRule)", issue.message());
     }
 
     @Test
@@ -39,17 +38,21 @@ class PMDIssueTest {
         Issue issue = new PMDIssue(
                 new TestRuleViolation("filename", 1, 2, 3, 4,
                         RulePriority.MEDIUM_HIGH, "description"));
-        assertEquals(issue.filePath(), "filename");
-        assertEquals(issue.fileLocation().startLineNumber(), 1);
-        assertEquals(issue.fileLocation().startCharOffset(), 2);
-        assertEquals(issue.fileLocation().endLineNumber(), 3);
-        assertEquals(issue.fileLocation().endCharOffset(), 4);
-        assertEquals(issue.category(), "Warning");
-        assertEquals(issue.isError(), false);
-        assertEquals(issue.message(), "description");
+        assertEquals("filename", issue.filePath());
+        assertEquals(1, issue.fileLocation().startLineNumber());
+        assertEquals(1, issue.fileLocation().startCharOffset());
+        assertEquals(3, issue.fileLocation().endLineNumber());
+        assertEquals(4, issue.fileLocation().endCharOffset());
+        assertEquals( "Warning", issue.category());
+        assertEquals(false, issue.isError());
+        assertEquals("description (TestRule)", issue.message());
     }
 
     static class TestRule extends AbstractRule {
+
+        @Override
+        public String getName() {return "TestRule";}
+
         @Override
         public void apply(List<? extends Node> nodes, RuleContext ctx) {
             // Not required

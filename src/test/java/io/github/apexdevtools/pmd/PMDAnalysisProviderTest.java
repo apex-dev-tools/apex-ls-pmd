@@ -66,13 +66,13 @@ class PMDAnalysisProviderTest {
             assertEquals(1, issues.length);
             Issue issue = issues[0];
             assert (issue.filePath().endsWith("Foo.cls"));
-            assertEquals(issue.fileLocation().startLineNumber(), 1);
-            assertEquals(issue.fileLocation().startCharOffset(), 14);
-            assertEquals(issue.fileLocation().endLineNumber(), 1);
-            assertEquals(issue.fileLocation().endCharOffset(), 48);
-            assertEquals(issue.category(), "Error");
-            assertEquals(issue.isError(), true);
-            assertEquals(issue.message(), "Test methods must be in test classes");
+            assertEquals(1, issue.fileLocation().startLineNumber());
+            assertEquals(13, issue.fileLocation().startCharOffset());
+            assertEquals(1, issue.fileLocation().endLineNumber());
+            assertEquals(48, issue.fileLocation().endCharOffset());
+            assertEquals( "Error", issue.category());
+            assertEquals(true, issue.isError());
+            assertEquals("Test methods must be in test classes (TestMethodsMustBeInTestClasses)", issue.message());
         } finally {
             deleteDirectory(root);
         }
