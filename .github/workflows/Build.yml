@@ -20,16 +20,5 @@ jobs:
         java-version: 8
         cache: 'sbt'
 
-    - name: apex-ls-checkout
-      uses: actions/checkout@v2
-      with:
-        repository: apex-dev-tools/apex-ls
-        path: './apex-ls'
-        token: ${{ secrets.KJ_AT }}
-
-    - name: apex-ls-compile
-      working-directory: './apex-ls'
-      run: sbt "pack 3.4.0"
-
     - name: Build
       run: sbt test
