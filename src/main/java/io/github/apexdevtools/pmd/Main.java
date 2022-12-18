@@ -3,7 +3,7 @@
  */
 package io.github.apexdevtools.pmd;
 
-import io.github.apexdevtools.apexls.api.Issue;
+import io.github.apexdevtools.api.Issue;
 
 import java.io.IOException;
 import java.nio.file.Files;

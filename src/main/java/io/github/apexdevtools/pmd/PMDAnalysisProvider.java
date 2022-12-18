@@ -3,8 +3,8 @@
  */
 package io.github.apexdevtools.pmd;
 
-import io.github.apexdevtools.apexls.spi.AnalysisProvider;
-import io.github.apexdevtools.apexls.api.Issue;
+import io.github.apexdevtools.spi.AnalysisProvider;
+import io.github.apexdevtools.api.Issue;
 import net.sourceforge.pmd.PMDConfiguration;
 import net.sourceforge.pmd.PmdAnalysis;
 

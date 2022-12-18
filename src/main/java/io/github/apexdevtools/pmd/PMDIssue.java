@@ -3,8 +3,8 @@
  */
 package io.github.apexdevtools.pmd;
 
-import io.github.apexdevtools.apexls.api.Issue;
-import io.github.apexdevtools.apexls.api.IssueLocation;
+import io.github.apexdevtools.api.Issue;
+import io.github.apexdevtools.api.IssueLocation;
 import net.sourceforge.pmd.RulePriority;
 import net.sourceforge.pmd.RuleViolation;
 

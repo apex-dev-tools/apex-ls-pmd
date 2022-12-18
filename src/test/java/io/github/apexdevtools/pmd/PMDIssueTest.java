@@ -5,7 +5,7 @@ package io.github.apexdevtools.pmd;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import io.github.apexdevtools.apexls.api.Issue;
+import io.github.apexdevtools.api.Issue;
 import net.sourceforge.pmd.Rule;
 import net.sourceforge.pmd.RuleContext;
 import net.sourceforge.pmd.RulePriority;
