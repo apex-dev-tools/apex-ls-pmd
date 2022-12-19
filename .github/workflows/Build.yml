@@ -22,3 +22,6 @@ jobs:
 
     - name: Build
       run: sbt test
+
+    - name: package
+      run: sbt universal:packageBin

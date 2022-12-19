@@ -51,15 +51,15 @@ A main class is included for ad-hoc testing:
 java -cp "apex-ls*.jar" io.github.apexdevtools.pmd.Main <directory>
 ```
 
-The chosen directory should contain an `apexls-pmd-rules.xml` ruleset file.
+The chosen directory should contain an `ff-pmd-rules.xml` or '`adt-pmd-rules.xml` ruleset file.
 
 ## Development
 
 ### Building
 
-* `sbt package` - Creates packaged jar testing and release.
-* `sbt assembly` - Creates an uber jar containing all dependencies.
-* `sbt test` - Execute full test run.
+* `sbt package` - Creates packaged jar for testing and release.
+* `sbt universal:packageBin` - Creates a zip with dependencies in target/universal/apex-ls-pmd-{version}/zip
+* `sbt test` - Execute test run.
 * `sbt clean` - Removes most build files and artifacts.
 
 ## License

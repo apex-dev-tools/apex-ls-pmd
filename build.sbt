@@ -1,3 +1,5 @@
+enablePlugins(JavaAppPackaging)
+
 inThisBuild(
   List(
     description  := "PMD plugin for apex-ls",
@@ -26,13 +28,3 @@ libraryDependencies ++= Seq(
   "net.sourceforge.pmd"      % "pmd-apex"          % "6.51.0",
   "net.aichler"              % "jupiter-interface" % JupiterKeys.jupiterVersion.value % Test
 )
-
-val copyJarsTask = TaskKey[Unit]("copy-jars", "Copys jars")
-
-copyJarsTask := {
-  val folder = new File("target")
-
-  (Compile / managedClasspath).value.files.foreach { f =>
-    IO.copyFile(f, folder / f.getName)
-  }
-}
