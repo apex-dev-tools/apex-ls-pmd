@@ -2,7 +2,7 @@
 
 A Java ServiceProvider plugin that can be used by [apex-ls](https://github.com/apex-dev-tools/apex-ls) to invoke PMD analysis on Apex code.
 
-The apex-ls-pmd jar needs to be on the classpath for apex-ls to be able to detect it is available. See apex-ls [README](https://github.com/apex-dev-tools/apex-ls/README.md) for more details.
+The apex-ls-pmd jar needs to be on the classpath for apex-ls to be able to detect it is available. See apex-ls [README](https://github.com/apex-dev-tools/apex-ls/blob/main/README.md) for more details.
 
 
 ## Getting Started
