@@ -3,8 +3,8 @@
  */
 package io.github.apexdevtools.pmd;
 
-import io.github.apexdevtools.apexls.api.Issue;
-import io.github.apexdevtools.apexls.spi.AnalysisProvider;
+import io.github.apexdevtools.api.Issue;
+import io.github.apexdevtools.spi.AnalysisProvider;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -70,7 +70,8 @@ class PMDAnalysisProviderTest {
             assertEquals(13, issue.fileLocation().startCharOffset());
             assertEquals(1, issue.fileLocation().endLineNumber());
             assertEquals(48, issue.fileLocation().endCharOffset());
-            assertEquals( "Error", issue.category());
+            assertEquals( "TestMethodsMustBeInTestClasses", issue.rule().name());
+            assertEquals( 1, issue.rule().priority());
             assertEquals(true, issue.isError());
             assertEquals("Test methods must be in test classes (TestMethodsMustBeInTestClasses)", issue.message());
         } finally {

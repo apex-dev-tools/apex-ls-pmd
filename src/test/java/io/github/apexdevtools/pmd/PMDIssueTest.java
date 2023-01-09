@@ -5,7 +5,7 @@ package io.github.apexdevtools.pmd;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import io.github.apexdevtools.apexls.api.Issue;
+import io.github.apexdevtools.api.Issue;
 import net.sourceforge.pmd.Rule;
 import net.sourceforge.pmd.RuleContext;
 import net.sourceforge.pmd.RulePriority;
@@ -28,7 +28,8 @@ class PMDIssueTest {
         assertEquals(1, issue.fileLocation().startCharOffset());
         assertEquals(3, issue.fileLocation().endLineNumber());
         assertEquals(4, issue.fileLocation().endCharOffset());
-        assertEquals( "Error", issue.category());
+        assertEquals( "TestRule", issue.rule().name());
+        assertEquals( 1, issue.rule().priority());
         assertEquals(true, issue.isError());
         assertEquals("description (TestRule)", issue.message());
     }
@@ -37,13 +38,14 @@ class PMDIssueTest {
     void testNonHighPriorityRuleCreatesWarning() {
         Issue issue = new PMDIssue(
                 new TestRuleViolation("filename", 1, 2, 3, 4,
-                        RulePriority.MEDIUM_HIGH, "description"));
+                        RulePriority.MEDIUM_LOW, "description"));
         assertEquals("filename", issue.filePath());
         assertEquals(1, issue.fileLocation().startLineNumber());
         assertEquals(1, issue.fileLocation().startCharOffset());
         assertEquals(3, issue.fileLocation().endLineNumber());
         assertEquals(4, issue.fileLocation().endCharOffset());
-        assertEquals( "Warning", issue.category());
+        assertEquals( "TestRule", issue.rule().name());
+        assertEquals( 4, issue.rule().priority());
         assertEquals(false, issue.isError());
         assertEquals("description (TestRule)", issue.message());
     }

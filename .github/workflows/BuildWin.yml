@@ -20,3 +20,7 @@ jobs:
 
     - name: Test
       run: sbt test
+
+    - name: package
+      run: sbt universal:packageBin
+

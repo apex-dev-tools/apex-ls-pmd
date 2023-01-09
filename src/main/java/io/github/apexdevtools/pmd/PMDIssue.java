@@ -3,10 +3,12 @@
  */
 package io.github.apexdevtools.pmd;
 
-import io.github.apexdevtools.apexls.api.Issue;
-import io.github.apexdevtools.apexls.api.IssueLocation;
-import net.sourceforge.pmd.RulePriority;
+import io.github.apexdevtools.api.Issue;
+import io.github.apexdevtools.api.IssueLocation;
+import io.github.apexdevtools.api.Rule;
 import net.sourceforge.pmd.RuleViolation;
+
+import static io.github.apexdevtools.api.Rule.MAJOR_PRIORITY;
 
 public class PMDIssue extends Issue {
     private final RuleViolation violation;
@@ -31,16 +33,13 @@ public class PMDIssue extends Issue {
     }
 
     @Override
-    public String category() {
-        if (violation.getRule().getPriority() == RulePriority.HIGH) {
-            return "Error";
-        }
-        return "Warning";
+    public Rule rule() {
+        return new PMDRule();
     }
 
     @Override
     public Boolean isError() {
-        return violation.getRule().getPriority() == RulePriority.HIGH;
+        return violation.getRule().getPriority().getPriority() <= MAJOR_PRIORITY;
     }
 
     @Override
@@ -81,4 +80,19 @@ public class PMDIssue extends Issue {
             return endCharOffset;
         }
     }
+
+    class PMDRule implements Rule {
+
+        @Override
+        public String name() {
+            return violation.getRule().getName();
+        }
+
+        @Override
+        public Integer priority() {
+            return violation.getRule().getPriority().getPriority();
+        }
+    }
+
 }
+
