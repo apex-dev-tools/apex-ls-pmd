@@ -26,3 +26,12 @@ jobs:
           PGP_SECRET: ${{ secrets.OSSRH_GPG_SECRET_KEY }}
           SONATYPE_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
           SONATYPE_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+
+      - name: Package
+        run: sbt Universal/packageBin
+
+      - name: Archive
+        uses: actions/upload-artifact@v3
+        with:
+          name: release
+          path: ./target/universal/*.zip
