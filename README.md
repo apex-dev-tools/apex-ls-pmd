@@ -57,7 +57,7 @@ The chosen directory should contain an `ff-pmd-rules.xml` or `adt-pmd-rules.xml`
 ### Building
 
 * `sbt package` - Creates packaged jar for testing and release.
-* `sbt Universal/packageBin` - Creates a zip with dependencies in target/universal/apex-ls-pmd-{version}/zip
+* `sbt Universal/packageBin` - Creates a zip with dependencies in `target/universal/apex-ls-pmd-{version}.zip`
 * `sbt test` - Execute test run.
 * `sbt clean` - Removes most build files and artifacts.
 
