@@ -6,6 +6,12 @@ on:
   pull_request:
     branches: [ "**" ]
   workflow_dispatch:
+    inputs:
+      archive:
+        description: 'Archive built package'
+        type: boolean
+        required: true
+        default: false
 
 jobs:
   build:
@@ -23,5 +29,12 @@ jobs:
     - name: Build
       run: sbt test
 
-    - name: package
-      run: sbt universal:packageBin
+    - name: Package
+      run: sbt Universal/packageBin
+
+    - name: Archive
+      uses: actions/upload-artifact@v3
+      if: ${{ inputs.archive }}
+      with:
+        name: archived-build
+        path: ./target/universal/*.zip
