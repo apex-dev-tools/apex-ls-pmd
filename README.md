@@ -1,9 +1,8 @@
-# PMD plugin for apex-ls 
+# PMD plugin for apex-ls
 
 A Java ServiceProvider plugin that can be used by [apex-ls](https://github.com/apex-dev-tools/apex-ls) to invoke PMD analysis on Apex code.
 
 The apex-ls-pmd jar needs to be on the classpath for apex-ls to be able to detect it is available. See apex-ls [README](https://github.com/apex-dev-tools/apex-ls/blob/main/README.md) for more details.
-
 
 ## Getting Started
 
@@ -51,18 +50,17 @@ A main class is included for ad-hoc testing:
 java -cp "apex-ls*.jar" io.github.apexdevtools.pmd.Main <directory>
 ```
 
-The chosen directory should contain an `ff-pmd-rules.xml` or '`adt-pmd-rules.xml` ruleset file.
+The chosen directory should contain an `ff-pmd-rules.xml` or `adt-pmd-rules.xml` ruleset file.
 
 ## Development
 
 ### Building
 
 * `sbt package` - Creates packaged jar for testing and release.
-* `sbt universal:packageBin` - Creates a zip with dependencies in target/universal/apex-ls-pmd-{version}/zip
+* `sbt Universal/packageBin` - Creates a zip with dependencies in target/universal/apex-ls-pmd-{version}/zip
 * `sbt test` - Execute test run.
 * `sbt clean` - Removes most build files and artifacts.
 
 ## License
 
 All the source code included uses a 3-clause BSD license, see [LICENSE](LICENSE) file for details.
-
