@@ -23,6 +23,7 @@ inThisBuild(
   )
 )
 
+name := "apex-ls-pmd"
 libraryDependencies ++= Seq(
   "io.github.apex-dev-tools" % "apex-types_2.13"   % "1.2.0",
   "net.sourceforge.pmd"      % "pmd-apex"          % "6.51.0",

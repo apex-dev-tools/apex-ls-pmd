@@ -22,5 +22,5 @@ jobs:
       run: sbt test
 
     - name: package
-      run: sbt universal:packageBin
+      run: sbt Universal/packageBin
 
