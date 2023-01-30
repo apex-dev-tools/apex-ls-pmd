@@ -61,6 +61,12 @@ The chosen directory should contain an `ff-pmd-rules.xml` or `adt-pmd-rules.xml`
 * `sbt test` - Execute test run.
 * `sbt clean` - Removes most build files and artifacts.
 
+### Release
+
+Releases are automated via workflow on publishing a release. Create a `v` prefixed tag at the same time on the commit to be released (e.g. `v1.0.0`).
+
+The release workflow will also archive the binary which should then be attached to the release. Note the workflow artifact is zipped a second time so the file `apex-ls-pmd-{version}.zip` will first need extracting.
+
 ## License
 
 All the source code included uses a 3-clause BSD license, see [LICENSE](LICENSE) file for details.
