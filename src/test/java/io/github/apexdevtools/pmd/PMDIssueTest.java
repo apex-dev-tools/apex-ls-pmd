@@ -3,18 +3,21 @@
  */
 package io.github.apexdevtools.pmd;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import io.github.apexdevtools.api.Issue;
 import net.sourceforge.pmd.Rule;
 import net.sourceforge.pmd.RuleContext;
 import net.sourceforge.pmd.RulePriority;
 import net.sourceforge.pmd.RuleViolation;
 import net.sourceforge.pmd.lang.ast.Node;
+import net.sourceforge.pmd.lang.document.FileId;
+import net.sourceforge.pmd.lang.document.FileLocation;
+import net.sourceforge.pmd.lang.document.TextRange2d;
 import net.sourceforge.pmd.lang.rule.AbstractRule;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
+import java.util.Map;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class PMDIssueTest {
 
@@ -56,8 +59,7 @@ class PMDIssueTest {
         public String getName() {return "TestRule";}
 
         @Override
-        public void apply(List<? extends Node> nodes, RuleContext ctx) {
-            // Not required
+        public void apply(Node target, RuleContext ctx) {
         }
     }
 
@@ -94,52 +96,18 @@ class PMDIssueTest {
         }
 
         @Override
-        public boolean isSuppressed() {
-            return false;
+        public FileLocation getLocation() {
+            return FileLocation.range(FileId.fromAbsolutePath(filename, null),
+                    new TextRange2d(beginLine, beginColumn, endLine, endColumn));
         }
 
         @Override
-        public String getFilename() {
-            return filename;
+        public FileId getFileId() {
+            return FileId.fromAbsolutePath(filename, null);
         }
 
         @Override
-        public int getBeginLine() {
-            return beginLine;
-        }
-
-        @Override
-        public int getBeginColumn() {
-            return beginColumn;
-        }
-
-        @Override
-        public int getEndLine() {
-            return endLine;
-        }
-
-        @Override
-        public int getEndColumn() {
-            return endColumn;
-        }
-
-        @Override
-        public String getPackageName() {
-            return null;
-        }
-
-        @Override
-        public String getClassName() {
-            return null;
-        }
-
-        @Override
-        public String getMethodName() {
-            return null;
-        }
-
-        @Override
-        public String getVariableName() {
+        public Map<String, String> getAdditionalInfo() {
             return null;
         }
     }
