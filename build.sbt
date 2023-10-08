@@ -26,8 +26,7 @@ inThisBuild(
 
 name := "apex-ls-pmd"
 libraryDependencies ++= Seq(
-  "io.github.apex-dev-tools" % "apex-types_2.13" % "1.2.0",
-  "net.sourceforge.pmd" % "pmd-apex" % "7.0.0-SNAPSHOT" exclude ("com.github.nawforce", "apexlink"),
-  "io.github.apex-dev-tools" % "apex-ls_2.13"      % "4.3.0+21-1c8b2643+20230829-1656-SNAPSHOT",
+  "io.github.apex-dev-tools" % "apex-types_2.13"   % "1.2.0",
+  "net.sourceforge.pmd"      % "pmd-apex"          % "7.0.0-rc4",
   "net.aichler"              % "jupiter-interface" % JupiterKeys.jupiterVersion.value % Test
 )
