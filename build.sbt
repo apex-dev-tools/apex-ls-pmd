@@ -19,13 +19,14 @@ inThisBuild(
     crossPaths             := false, // drop off Scala suffix from artifact names.
     autoScalaLibrary       := false, // exclude scala-library from dependencies
     sonatypeCredentialHost := "s01.oss.sonatype.org",
-    sonatypeRepository     := "https://s01.oss.sonatype.org/service/local"
+    sonatypeRepository     := "https://s01.oss.sonatype.org/service/local",
+    resolvers += Resolver.mavenLocal
   )
 )
 
 name := "apex-ls-pmd"
 libraryDependencies ++= Seq(
   "io.github.apex-dev-tools" % "apex-types_2.13"   % "1.2.0",
-  "net.sourceforge.pmd"      % "pmd-apex"          % "6.51.0",
+  "net.sourceforge.pmd"      % "pmd-apex"          % "7.0.0-rc4",
   "net.aichler"              % "jupiter-interface" % JupiterKeys.jupiterVersion.value % Test
 )

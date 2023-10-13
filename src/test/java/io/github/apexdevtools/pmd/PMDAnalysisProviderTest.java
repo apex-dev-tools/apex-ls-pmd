@@ -69,7 +69,7 @@ class PMDAnalysisProviderTest {
             assertEquals(1, issue.fileLocation().startLineNumber());
             assertEquals(13, issue.fileLocation().startCharOffset());
             assertEquals(1, issue.fileLocation().endLineNumber());
-            assertEquals(48, issue.fileLocation().endCharOffset());
+            assertEquals(17, issue.fileLocation().endCharOffset());
             assertEquals( "TestMethodsMustBeInTestClasses", issue.rule().name());
             assertEquals( 1, issue.rule().priority());
             assertEquals(true, issue.isError());
