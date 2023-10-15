@@ -40,7 +40,7 @@ public class Main {
         Path[] apexFiles = collectApexFiles(workspace).toArray(new Path[0]);
         PMDAnalysisProvider provider = new PMDAnalysisProvider();
         Issue[] issues = provider.collectIssues(workspace, apexFiles);
-        for(Issue issue: issues)
+        for (Issue issue : issues)
             System.out.println(issue.toString());
     }
 
