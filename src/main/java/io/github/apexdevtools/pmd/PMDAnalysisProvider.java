@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 
 /**
  * Analysis provider for PMD.
- * Supports configuration of ruleset files & minimumPriority (rules with lower priority are ignored). If no
+ * Supports configuration of ruleset files and minimumPriority (rules with lower priority are ignored). If no
  * ruleset files are provided a default of 'adt-pmd-rules.xml' will be used if present. At least one ruleset
  * file is required for the analysis to run.
  */
