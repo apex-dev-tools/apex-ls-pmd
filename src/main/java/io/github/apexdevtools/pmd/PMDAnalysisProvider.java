@@ -35,7 +35,7 @@ public class PMDAnalysisProvider implements AnalysisProvider {
     public void setConfiguration(String name, List<String> values) {
         switch (name.toLowerCase()) {
             case "rulesets":
-                if (!rulesets.isEmpty()) {
+                if (values != null && !values.isEmpty()) {
                     rulesets = values;
                 }
                 break;
