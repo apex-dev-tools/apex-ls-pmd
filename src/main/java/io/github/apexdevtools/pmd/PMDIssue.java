@@ -55,7 +55,7 @@ public class PMDIssue extends Issue {
 
         public PMDLocation(int startLine, int startCharOffset, int endLine, int endCharOffset) {
             this.startLine = startLine;
-            this.startCharOffset = Math.max(0,startCharOffset-1);
+            this.startCharOffset = Math.max(0, startCharOffset - 1);
             this.endLine = endLine;
             this.endCharOffset = endCharOffset;
         }

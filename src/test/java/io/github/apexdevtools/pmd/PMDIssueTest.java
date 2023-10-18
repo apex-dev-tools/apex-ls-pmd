@@ -31,8 +31,8 @@ class PMDIssueTest {
         assertEquals(1, issue.fileLocation().startCharOffset());
         assertEquals(3, issue.fileLocation().endLineNumber());
         assertEquals(4, issue.fileLocation().endCharOffset());
-        assertEquals( "TestRule", issue.rule().name());
-        assertEquals( 1, issue.rule().priority());
+        assertEquals("TestRule", issue.rule().name());
+        assertEquals(1, issue.rule().priority());
         assertEquals(true, issue.isError());
         assertEquals("description (TestRule)", issue.message());
     }
@@ -47,8 +47,8 @@ class PMDIssueTest {
         assertEquals(1, issue.fileLocation().startCharOffset());
         assertEquals(3, issue.fileLocation().endLineNumber());
         assertEquals(4, issue.fileLocation().endCharOffset());
-        assertEquals( "TestRule", issue.rule().name());
-        assertEquals( 4, issue.rule().priority());
+        assertEquals("TestRule", issue.rule().name());
+        assertEquals(4, issue.rule().priority());
         assertEquals(false, issue.isError());
         assertEquals("description (TestRule)", issue.message());
     }
@@ -56,7 +56,9 @@ class PMDIssueTest {
     static class TestRule extends AbstractRule {
 
         @Override
-        public String getName() {return "TestRule";}
+        public String getName() {
+            return "TestRule";
+        }
 
         @Override
         public void apply(Node target, RuleContext ctx) {
