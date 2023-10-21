@@ -1,5 +1,3 @@
-enablePlugins(JavaAppPackaging)
-
 inThisBuild(
   List(
     description  := "PMD plugin for apex-ls",
@@ -26,7 +24,8 @@ inThisBuild(
 
 name := "apex-ls-pmd"
 libraryDependencies ++= Seq(
-  "io.github.apex-dev-tools" % "apex-types_2.13"   % "1.3.0",
-  "net.sourceforge.pmd"      % "pmd-apex"          % "7.0.0-rc4",
-  "net.aichler"              % "jupiter-interface" % JupiterKeys.jupiterVersion.value % Test
+  "io.github.apex-dev-tools" % "apex-types_2.13" % "1.3.0",
+  "net.sourceforge.pmd" % "pmd-apex" % "7.0.0-rc4" exclude ("com.github.nawforce", "apexlink"),
+  "net.aichler"              % "jupiter-interface" % JupiterKeys.jupiterVersion.value % Test,
+  "io.github.apex-dev-tools" % "apex-ls_2.13"      % "4.3.1"                          % Test
 )
