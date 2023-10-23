@@ -43,14 +43,9 @@ Maven:
 
 ### Usage
 
-A main class is included for ad-hoc testing:
+A main class, *io.github.apexdevtools.pmd.Main*, is included in the test classes for ad-hoc testing, this is best run from an IDE to establish the correct dependency jars.
 
-```sh
-# Assuming dep jars are in the same directory
-java -cp "apex-ls*.jar" io.github.apexdevtools.pmd.Main <directory>
-```
-
-The chosen directory should contain an `ff-pmd-rules.xml` or `adt-pmd-rules.xml` ruleset file.
+The command requires a workspace to analyse, this should contain `adt-pmd-rules.xml` PMD ruleset file.
 
 ## Development
 

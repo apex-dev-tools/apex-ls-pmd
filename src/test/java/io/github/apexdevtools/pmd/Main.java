@@ -31,7 +31,7 @@ public class Main {
             System.exit(2);
         }
 
-        Path ruleset = workspace.resolve("apexls-pmd-rules.xml");
+        Path ruleset = workspace.resolve("adt-pmd-rules.xml");
         if (!ruleset.toFile().canRead()) {
             System.err.println("Ruleset file '" + ruleset + "' can not be read");
             System.exit(2);
