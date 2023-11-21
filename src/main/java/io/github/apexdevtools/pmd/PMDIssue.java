@@ -24,7 +24,7 @@ public class PMDIssue extends Issue {
 
     @Override
     public String filePath() {
-        return violation.getFileId().getFileName();
+        return violation.getFileId().getAbsolutePath();
     }
 
     @Override
