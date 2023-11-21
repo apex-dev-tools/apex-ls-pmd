@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class PMDIssueCollector extends EmptyRenderer {
-    private List<PMDIssue> issues = new ArrayList<PMDIssue>();
+    private final List<PMDIssue> issues = new ArrayList<PMDIssue>();
 
     @Override
     public void renderFileReport(Report report) {
